@@ -7,12 +7,27 @@ public class Boundary
 {
     public float xMin, xMax, zMin, zMax;
 }
-public class RuchGracza : MonoBehaviour {
+public class RuchGracza : MonoBehaviour
+{
 
     public float speed;
     public float tilt;
     public Boundary boundary;
 
+    public GameObject shot;
+    public Transform canon;
+    public float fireRate;
+
+    private float nextFire;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(shot, canon.position, canon.rotation);
+        }
+    }
     void FixedUpdate()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
