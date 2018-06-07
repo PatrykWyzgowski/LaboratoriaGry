@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44949996, g: 0.49649584, b: 0.55914426, a: 1}
+  m_IndirectSpecularColor: {r: 0.4494998, g: 0.49649584, b: 0.55914414, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -739,7 +739,7 @@ MonoBehaviour:
   boundary:
     xMin: -20
     xMax: 45
-    zMin: -20
+    zMin: 0
     zMax: 45
   shot: {fileID: 1053635504281354, guid: 1be969ac636a2ae44b1d4a2a0be2fe8a, type: 2}
   canon: {fileID: 415254944}
