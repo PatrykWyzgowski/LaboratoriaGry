@@ -738,9 +738,9 @@ MonoBehaviour:
   tilt: 3
   boundary:
     xMin: -20
-    xMax: 45
+    xMax: 21
     zMin: 0
-    zMax: 45
+    zMax: 13
   shot: {fileID: 1053635504281354, guid: 1be969ac636a2ae44b1d4a2a0be2fe8a, type: 2}
   canon: {fileID: 415254944}
   fireRate: 0.25
