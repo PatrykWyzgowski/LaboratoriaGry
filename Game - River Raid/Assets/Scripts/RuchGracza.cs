@@ -19,6 +19,7 @@ public class RuchGracza : MonoBehaviour
     public float fireRate;
 
     private float nextFire;
+    private AudioSource weaponAudio;
 
     void Update()
     {
@@ -26,6 +27,8 @@ public class RuchGracza : MonoBehaviour
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, canon.position, canon.rotation);
+            weaponAudio = GetComponent<AudioSource>();
+            weaponAudio.Play();
         }
     }
     void FixedUpdate()
