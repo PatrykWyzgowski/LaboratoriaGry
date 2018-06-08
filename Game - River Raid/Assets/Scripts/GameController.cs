@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-	public GameObject hazard;
+	public GameObject[] hazards;
 	public Vector3 spawnValues;
 	public int hazardCount;
 	public float spawnWait;
@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
 
     private bool gameOver;
     private bool restart;
+    private AudioSource gameOverSound;
 
 
     void Start()
@@ -44,7 +45,8 @@ public class GameController : MonoBehaviour
 		{
 			for (int i = 0; i < hazardCount; i++)
 			{
-				Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+                GameObject hazard = hazards[Random.Range(0, hazards.Length)];
+                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
 				Quaternion spawnRotation = Quaternion.identity;
 				Instantiate(hazard, spawnPosition, spawnRotation);
 				yield return new WaitForSeconds(spawnWait);
@@ -55,6 +57,8 @@ public class GameController : MonoBehaviour
             {
                 Restart.text = "Press 'R' for Restart";
                 restart = true;
+                gameOverSound = GetComponent<AudioSource>();
+                gameOverSound.Play();
                 break;
             }
         }

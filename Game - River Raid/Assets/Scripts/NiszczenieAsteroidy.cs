@@ -23,11 +23,14 @@ public class NiszczenieAsteroidy : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) 
     {
-        if (other.tag == "Boundary")
+        if (other.CompareTag("Boundary") || other.CompareTag("Enemy")) 
         {
             return;
         }
-        Instantiate(eksplozja, transform.position, transform.rotation);
+        if (eksplozja != null)
+        {
+            Instantiate(eksplozja, transform.position, transform.rotation);
+        }
         if (other.tag == "Player")
         {
             Instantiate(graczEksplozja, other.transform.position, other.transform.rotation);
