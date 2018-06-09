@@ -15,7 +15,7 @@ public class RuchGracza : MonoBehaviour
     public Boundary boundary;
 
     public GameObject shot;
-    public Transform canon;
+    public Transform[] canons;
     public float fireRate;
 
     private float nextFire;
@@ -26,7 +26,9 @@ public class RuchGracza : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
+            foreach (var canon in canons){
             Instantiate(shot, canon.position, canon.rotation);
+            }
             weaponAudio = GetComponent<AudioSource>();
             weaponAudio.Play();
         }
