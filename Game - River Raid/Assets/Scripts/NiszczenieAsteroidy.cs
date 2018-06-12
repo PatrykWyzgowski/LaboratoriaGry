@@ -6,6 +6,7 @@ public class NiszczenieAsteroidy : MonoBehaviour {
 
     public GameObject eksplozja;
     public GameObject graczEksplozja;
+    public int scoreValue;
     private GameController gameController;
 
     void Start()
@@ -36,6 +37,7 @@ public class NiszczenieAsteroidy : MonoBehaviour {
             Instantiate(graczEksplozja, other.transform.position, other.transform.rotation);
             gameController.GameOver();
         }
+        gameController.AddScore (scoreValue);
         Destroy(other.gameObject);
         Destroy(gameObject);
     }

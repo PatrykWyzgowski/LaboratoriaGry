@@ -11,6 +11,10 @@ public class GameController : MonoBehaviour
 	public float spawnWait;
 	public float startWait;
 	public float waveWait;
+  
+    public Text scoreText;
+    private int score;    
+
     public Text Restart;
     public Text GameOver1;
 
@@ -26,6 +30,8 @@ public class GameController : MonoBehaviour
         restart = false;
         Restart.text = "";
         GameOver1.text = "";
+        score=0;
+        UpdateScore ();
         StartCoroutine(SpawnWaves());
 	}
     void Update()
@@ -69,4 +75,16 @@ public class GameController : MonoBehaviour
         GameOver1.text = "Game Over!";
         gameOver = true;
     }
+
+    public void AddScore (int newScoreValue)
+    {
+        score += newScoreValue;
+        UpdateScore ();
+    }
+
+    void UpdateScore ()
+    {
+        scoreText.text = "Score: " + score;
+    }
+
 }
