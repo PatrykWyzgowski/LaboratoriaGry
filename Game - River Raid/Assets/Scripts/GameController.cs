@@ -61,7 +61,7 @@ public class GameController : MonoBehaviour
 
             if (gameOver)
             {
-                Restart.text = "Press 'R' for Restart";
+                Restart.text = "Naciśnij R aby zacząć od nowa";
                 restart = true;
                 gameOverSound = GetComponent<AudioSource>();
                 gameOverSound.Play();
