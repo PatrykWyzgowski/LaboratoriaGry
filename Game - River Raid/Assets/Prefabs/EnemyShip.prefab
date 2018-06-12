@@ -310,7 +310,7 @@ MonoBehaviour:
   boundary:
     xMin: -20
     xMax: 21
-    zMin: 0
+    zMin: -5
     zMax: 13
 --- !u!114 &114483801072573556
 MonoBehaviour:
