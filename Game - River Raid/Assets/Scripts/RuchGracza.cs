@@ -17,6 +17,7 @@ public class RuchGracza : MonoBehaviour
     public GameObject shot;
     public Transform[] canons;
     public float fireRate;
+    public GameController gameController;
 
     private float nextFire;
     private AudioSource weaponAudio;
@@ -26,9 +27,14 @@ public class RuchGracza : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            foreach (var canon in canons){
-            Instantiate(shot, canon.position, canon.rotation);
+            
+            Instantiate(shot, canons[0].position, canons[0].rotation);
+            if (gameController.score >= 100)
+            {
+                Instantiate(shot, canons[1].position, canons[1].rotation);
+                Instantiate(shot, canons[2].position, canons[2].rotation);
             }
+            
             weaponAudio = GetComponent<AudioSource>();
             weaponAudio.Play();
         }

@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
 	public float waveWait;
   
     public Text scoreText;
-    private int score;    
+    public int score { get; set; }   
 
     public Text Restart;
     public Text GameOver1;
